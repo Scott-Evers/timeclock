@@ -2,9 +2,8 @@ import React, {useState} from 'react';
 import {StyleSheet, FlatList} from 'react-native';
 import Card from './Card';
 
-const Row = ({info, handlers, screenHeight, screenWidth}) => {
-  console.log('row', handlers);
-  const [items, setItems] = useState(info);
+const Row = (props) => {
+  const [items, setItems] = useState(props.info);
   return (
     <FlatList
       style={styles.row}
@@ -13,8 +12,9 @@ const Row = ({info, handlers, screenHeight, screenWidth}) => {
       renderItem={({item}) => (
         <Card
           info={item}
-          screenHeight={screenHeight}
-          screenWidth={screenWidth}
+          screenHeight={props.screenHeight}
+          screenWidth={props.screenWidth}
+          handlers={props.handlers}
         />
       )}
     />

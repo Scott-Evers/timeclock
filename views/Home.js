@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {StatusBar, FlatList, useWindowDimensions} from 'react-native';
 import Header from '../components/Header';
 import Row from '../components/Row';
+import * as Handlers from '../modules/CardHandlers';
 
 const App: () => React$Node = () => {
   const [items, setItems] = useState([
@@ -105,6 +106,7 @@ const App: () => React$Node = () => {
             info={item.subs}
             screenHeight={screenHeight}
             screenWidth={screenWidth}
+            handlers={Handlers}
           />
         )}
       />
