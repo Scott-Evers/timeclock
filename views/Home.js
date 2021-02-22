@@ -1,10 +1,7 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Text, StatusBar, FlatList} from 'react-native';
-import {uuid} from 'uuid';
+import {StatusBar, FlatList, useWindowDimensions} from 'react-native';
 import Header from '../components/Header';
-import Card from '../components/Card';
 import Row from '../components/Row';
-import pad_handlers from '../modules/pad_handlers';
 
 const App: () => React$Node = () => {
   const [items, setItems] = useState([
@@ -94,6 +91,9 @@ const App: () => React$Node = () => {
     },
   ]);
 
+  let screenHeight = useWindowDimensions().height;
+  let screenWidth = useWindowDimensions().width;
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -101,7 +101,11 @@ const App: () => React$Node = () => {
       <FlatList
         data={items}
         renderItem={({item}) => (
-          <Row info={item.subs} handlers={pad_handlers} />
+          <Row
+            info={item.subs}
+            screenHeight={screenHeight}
+            screenWidth={screenWidth}
+          />
         )}
       />
     </>
