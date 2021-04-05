@@ -1,13 +1,9 @@
 import {StyleSheet} from 'react-native';
 
-class common {
-  fontColor = '#222';
-
-  styles = StyleSheet.create({
+export function styles() {
+  return StyleSheet.create({
     text: {
-      fontColor: this.fontColor,
+      color: '#222',
     },
   });
 }
-
-export default common;

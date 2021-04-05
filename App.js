@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Pads from './screens/tabIcons/Pads';
 import Then from './screens/Then';
+import AddEntry from './screens/AddEntry';
 
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -20,8 +21,8 @@ MaterialCommunityIcons.loadFont();
 const ScreenStackThen = () => {
   return (
     <StackThen.Navigator>
-      <StackThen.Screen name="Then" component={Then} />
-      <StackThen.Screen name="Details" component={Pads} />
+      <StackThen.Screen name="Timecard" component={Then} />
+      <StackThen.Screen name="Add" component={AddEntry} />
     </StackThen.Navigator>
   );
 };
@@ -42,7 +43,13 @@ const App: () => React$Node = () => {
         screenOptions={({route}) => ({
           tabBarIcon: ({focused, color, size}) => {
             if (route.name === 'Then') {
-              return <MaterialCommunityIcons name="calendar-clock" size={size} color={color} />;
+              return (
+                <MaterialCommunityIcons
+                  name="calendar-clock"
+                  size={size}
+                  color={color}
+                />
+              );
             } else if (route.name === 'Now') {
               return (
                 <Ionicons
